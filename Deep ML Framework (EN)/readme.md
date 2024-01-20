@@ -1,5 +1,5 @@
 # Fundamentals of **Deep Machine Learning**.
-The main goal of this project is to demonstrate my knowledge and understanding of key algorithms that are the basis of ready-made deep machine learning libraries, such as **TensorFlow** and **PyTorch**. I can also implement these algorithms from scratch, using only the most basic tools, such as **Numpy** in **Python**, for fast calculations. I believe that this knowledge facilitates the understanding of frequently occurring problems in this field and better hyperparameter tuning. All algorithms, functions, derivatives, and activations have been implemented from scratch.
+The main goal of this project is to demonstrate my knowledge and understanding of key algorithms that are the basis of ready-made deep machine learning libraries, such as **TensorFlow** and **PyTorch**. I can also implement these algorithms from scratch, using only the most basic tools, such as **Numpy** in **Python**, for fast calculations. I believe that this knowledge facilitates understanding of frequently occurring problems in this field and a deeper understanding of how to adjust hyperparameters. All algorithms, functions, derivatives, and activations have been implemented from scratch.
 
 
 ## Implementation of Key Classes

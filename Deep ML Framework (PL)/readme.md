@@ -1,6 +1,6 @@
 # Fundamenty **Deep Machine Learning**.
 
-Głównym celem tego projektu jest demonstracja mojej znajomości i zrozumienia kluczowych algorytmów, które są podstawą gotowych bibliotek do głębokiego uczenia maszynowego, takich jak **TensorFlow** i **PyTorch**. Potrafię również implementować te algorytmy od podstaw, korzystając jedynie z najbardziej podstawowych narzędzi, takich jak **Numpy** w **Pythonie**, do szybkich obliczeń. Uważam, że ta wiedza ułatwia zrozumienie często pojawiających się problemów w tej dziedzinie oraz lepsze dopasowywanie hiperparametrów. Wszystkie algorytmy, funkcje, pochodne i aktywacje zostały zaimplementowane od zera.
+Głównym celem tego projektu jest demonstracja mojej znajomości i zrozumienia kluczowych algorytmów, które są podstawą gotowych bibliotek do głębokiego uczenia maszynowego, takich jak **TensorFlow** i **PyTorch**. Potrafię również implementować te algorytmy od podstaw, korzystając jedynie z najbardziej podstawowych narzędzi, takich jak **Numpy** w **Pythonie**, do szybkich obliczeń. Uważam, że ta wiedza ułatwia zrozumienie często pojawiających się problemów w tej dziedzinie oraz glębsze zrozumienie jak dopasowywać hiperparametry. Wszystkie algorytmy, funkcje, pochodne i aktywacje zostały zaimplementowane od zera.
 
 
 ## Implementacja kluczowych klas
