@@ -12,11 +12,13 @@ So the model for an input of size 640x640 predicts a total of 2000 bboxes:
    - The p4 map has 1600 bboxes (640/16=40, 40<sup>2</sup>=1600) and its task should be to detect smaller objects,
    - The p5 map has 400 bboxes (640/32=20, 20<sup>2</sup>=400) and its task should be to detect larger objects.
 
+Thanks to the use of these maps, the model directly predicts the position and size of the bbox, instead of the approach using **anchors**, where the model selected one of the previously determined anchors, for which it predicted how many times it needs to reduce or increase its size. This approach is called **Anchor-Free** and is used in the latest YOLOv8 models.
+
 My model is consistent with the architecture of YOLOv8 shown below up to the Detect blocks.
 ![Architecture](model.png)
 
 ## Data Loading and Processing
-To load the data needed for training, I created the **DataGenerator** and **MetaData** classes, which load data from the **COCO2017** dataset that has over 100,000 different images. I use the powerful **Albumentations** library for data augmentation, which also optimizes code speed. The MetaData class is responsible for processing data and creating a **label** for a single image, and the DataGenerator is responsible for loading data from a folder and then processing them using MetaData and packing them into a **batch** of a specified size.
+To load the data needed for training, I created the **DataGenerator** and **MetaData** classes, which load data from the **COCO2017** dataset that has over 100,000 different images. I use the powerful [**Albumentations**](https://albumentations.ai/) library for data augmentation, which also optimizes code speed. The MetaData class is responsible for processing data and creating a **label** for a single image, and the DataGenerator is responsible for loading data from a folder and then processing them using MetaData and packing them into a **batch** of a specified size.
 
 
 ## Loss Function
@@ -58,7 +60,7 @@ Below is an animation presenting the results of my model on images from the COCO
 ![Output](output.gif)
 
 ## Summary 
-This project was the most time-consuming for me, mainly because I had to figure out everything on my own. I tried different approaches - at first I used **transfer learning** from the **ResNet101** model and the approach with **anchors**, where the model did not predict the size of the bbox directly, but chose a specific anchor, for which it predicted how many times it needs to be reduced or increased.
+This project was the most time-consuming for me, mainly because I had to figure out everything on my own. I tried different approaches - at first, I used **transfer learning** from the **ResNet101** model, or the approach with predefined **anchors**.
 
 Key moments were the application of the DynamicBBoxMatcher algorithm, which made the biggest difference in the results, and then the use of the complex architecture of the YOLOv8 model. Ultimately, I am proud of what I have created and the results I have achieved.
 

@@ -13,11 +13,14 @@ Zatem model dla wejścia o rozmiarze 640x640 przewiduje łącznie 2000 bbox'ów:
  - Mapa p4 posiada 1600 bbox'ów (640/16=40, 40<sup>2</sup>=1600) i jej zadaniem powinno być wykrywanie mniejszych obiektów, 
  - Mapa p5 posiada 400 bbox'ów (640/32=20, 20<sup>2</sup>=400) i jej zadaniem powinno być wykrywanie większych obiektów.
 
+Dzięki wykorzystaniu tych map, model przewiduje wprost położenie i rozmiar bbox'a, zamiast podejścia z wykorzystaniem kotwic (tzw. **anchor**), gdzie model wybierał jedną z wcześniej wyznaczonych kotwic, dla której przewidywał o ile razy musi zmniejszyć bądz powiększyć jej rozmiar. To podejście nazywa się **Anchor-Free** i jest wykorzystywane w najnowszych modelach YOLOv8.
+
 Mój model jest zgodny z podaną niżej architekturą YOLOv8 aż do bloków Detect.
 ![Architecture](model.png)
 
 ## Wczytywanie i Przetwarzanie Danych
-Do wczytywania danych potrzebnych do treningu, stworzyłem klasę **DataGenerator** oraz **MetaData**, które wczytują dane z datasetu **COCO2017** który posiada ponad 100 000 różnych obrazów. Wykorzystuję potężną bibliotekę **Albumentations** do augmentacji danych, która również optymalizuje szybkość kodu. Klasa MetaData odpowiada za przetwarzanie danych i tworzenie **etykiety** dla pojedynczego obrazu, a DataGenerator odpowiada za wczytywanie danych z folderu oraz następnym przetworzeniu ich przy użyciu MetaData i pakowaniu ich w **batch** o określonym rozmiarze.
+Do wczytywania danych potrzebnych do treningu, stworzyłem klasę **DataGenerator** oraz **MetaData**, które wczytują dane z datasetu **COCO2017** który posiada ponad 100 000 różnych obrazów. Wykorzystuję potężną bibliotekę [**Albumentations**](https://albumentations.ai/) do augmentacji danych, która również optymalizuje szybkość kodu. Klasa MetaData odpowiada za przetwarzanie danych i tworzenie **etykiety** dla pojedynczego obrazu, a DataGenerator odpowiada za wczytywanie danych z folderu oraz następnym przetworzeniu ich przy użyciu MetaData i pakowaniu ich w **batch** o określonym rozmiarze.
+
 
 ## Funkcja Straty
 Zaimplementowałem również bardzo złożoną funkcję straty, która najpierw wykorzystuje klasę **DynamicBBoxMatcher** odpowiadającą za dynamiczne najlepsze dopasowanie prawdziwych bbox'ów do tych przewidzianych przez model, korzystając z [**algorytmu węgierskiego**](https://en.wikipedia.org/wiki/Hungarian_algorithm), bazując na Intersection Over Union (**IOU**) oraz klasyfikacji. To nie tylko przyśpiesza znacznie proces treningu, ale dzięki temu model osiąga lepsze wyniki.
@@ -57,7 +60,7 @@ Poniżej znajduje się animacja prezentująca wyniki mojego modelu na obrazach z
 ![Output](output.gif)
 
 ## Podsumowanie 
-Ten projekt był dla mnie najbardziej czasochłonny, głównie dlatego, że musiałem samodzielnie dochodzić do wszystkiego. Próbowałem różnych podejść - na początku korzystałem z **transfer learningu** z modelu **ResNet101** oraz z podejścia z **anchorami**, gdzie model nie przewidywał bezpośrednio rozmiaru bboxa, lecz wybierał określony anchor, dla którego przewidywał, o ile razy musi go pomniejszyć czy zwiększyć.
+Ten projekt był dla mnie najbardziej czasochłonny, głównie dlatego, że musiałem samodzielnie dochodzić do wszystkiego. Próbowałem różnych podejść - na początku korzystałem z **transfer learningu** z modelu **ResNet101**, czy z podejścia z predefiniowanymi **anchorami**.
 
 Kluczowymi momentami było zastosowanie algorytmu DynamicBBoxMatcher, który zrobił największą różnicę w wynikach, a następnie skorzystanie z złożonej architektury modelu YOLOv8. Ostatecznie jestem dumny z tego, co stworzyłem i z wyników, które udało mi się osiągnąć.
 
