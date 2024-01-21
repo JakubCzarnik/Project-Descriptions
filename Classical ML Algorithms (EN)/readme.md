@@ -1,5 +1,6 @@
 # Fundamentals of **Machine Learning**
-The aim of the project was to implement the most popular classical machine learning algorithms and use them on data sets. I decided to use a high-level language **C++** for this, including the **Eigen** library and the **CMake** tool, which is used to automatically manage the compilation process of multiple programs. The project was more challenging due to the lack of use of ready-made data processing libraries, such as **NumPy** or **Pandas** in **Python**.
+
+The aim of the project is to demonstrate my knowledge of the most popular classical machine learning algorithms, implementing the most popular ones from scratch and using them on basic data sets. I decided to use a high-level language, **C++**, for this, including the **Eigen** library and the **CMake** tool, which is used to automatically manage the compilation process of multiple programs. The project was more challenging due to the lack of use of ready-made data processing libraries, such as **NumPy** or **Pandas** in **Python**.
 
 
 ## Data Loading
