@@ -27,7 +27,7 @@ Klasyfikator osiągnął ponad znakomite **98.3%** dokładności na całym zbior
 
 ## **Generative Adversarial Network** (**GAN**)
 
-Zaimplementowałem również **GAN**, który składa się z dwóch modeli: 
+Zaimplementowałem również [**GAN**](https://www.tensorflow.org/tutorials/generative/dcgan), który składa się z dwóch modeli: 
    - **Generatora**, którego zadaniem jest przekształcenie szumu, losowo wygenerowanej przestrzeni liczb zwanej **przestrzenią latentną**, 
    na jak najbardziej realistyczne obrazy.
    - **Dyskriminatora**, którego zadaniem jest klasyfikowanie zdjęć, jako prawdziwe dla obrazów z datasetu (model powinien przewidywać wartość 1) oraz jako fałszywe dla obrazów wygenerowanych przez generator (wartość 0). 
